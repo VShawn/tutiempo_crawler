@@ -103,6 +103,7 @@ class tutiempo_month_crawler(object):
         
         '''
         ret.str_location = ''
+        ret.str_icao = ''
         ret.str_year = ''
         ret.str_month_en = ''
         ret.str_month_num = ''
@@ -135,9 +136,14 @@ class tutiempo_month_crawler(object):
             ret.str_weather_station_id = re.compile(r'(?<=station:\s)\d*(?=\s)').findall(str_table_info)
             if ret.str_weather_station_id:
                 ret.str_weather_station_id = ret.str_weather_station_id[0]
+                tmp = re.compile(r'(?<={station}\s\()\S*(?=\))'.format(station = ret.str_weather_station_id)).findall(str_table_info)
+                if tmp:
+                    ret.str_icao = tmp[0]
+                else:
+                    ret.str_icao = ''
             else:
                 ret.str_weather_station_id = ''
-
+                ret.str_icao = ''
             ret.str_latitude = re.compile(r'(?<=Latitude):\s(\d+\.?\d*)').findall(str_table_info)
             if ret.str_latitude:
                 ret.str_latitude = ret.str_latitude[0]
@@ -200,6 +206,7 @@ class tutiempo_month_crawler(object):
 
 class tutiempo_climate_data(object):
     str_location = ''
+    str_icao = ''
     str_weather_station_id = ''
     str_latitude = ''
     str_longitude = ''
@@ -212,6 +219,7 @@ class tutiempo_climate_data(object):
         # base info
         if self.str_location == "":
             self.str_location = month_data.str_location
+            self.str_icao = month_data.str_icao
             self.str_weather_station_id = month_data.str_weather_station_id
             self.str_latitude = month_data.str_latitude
             self.str_longitude = month_data.str_longitude
@@ -245,7 +253,7 @@ if __name__ == '__main__':
     if month_data:
         # build csv
         array_title = ["location: ", month_data.str_location, "Year: ", month_data.str_year, "Month: ", month_data.str_month_num]
-        array_info = ["Weather station: ", month_data.str_weather_station_id, "Latitude: ", month_data.str_latitude, "Longitude: ", month_data.str_longitude, "Altitude: ", month_data.str_altitude]
+        array_info = ["Weather station: ", month_data.str_weather_station_id, "ICAO", month_data.str_icao, "Latitude: ", month_data.str_latitude, "Longitude: ", month_data.str_longitude, "Altitude: ", month_data.str_altitude]
         write_data = '"\n"'.join(['","'.join(tr)for tr in [array_title, array_info, month_data.array_climate_table_title, ] + [month_data.array_climate_table_subtitle, ] + month_data.array_climate_table_data])
         write_data = '"' + write_data + '"'
         # write csv
@@ -261,7 +269,7 @@ if __name__ == '__main__':
             year_data.append(month_data,year,i)
     # build csv
     array_title = ["location: ", year_data.str_location]
-    array_info = ["Weather station: ", year_data.str_weather_station_id, "Latitude: ", year_data.str_latitude, "Longitude: ", year_data.str_longitude, "Altitude: ", year_data.str_altitude]
+    array_info = ["Weather station: ", year_data.str_weather_station_id, "ICAO", year_data.str_icao, "Latitude: ", year_data.str_latitude, "Longitude: ", year_data.str_longitude, "Altitude: ", year_data.str_altitude]
     write_data = '"\n"'.join(['","'.join(tr)for tr in [array_title, array_info, year_data.array_climate_table_title, ] + [year_data.array_climate_table_subtitle, ] + year_data.array_climate_table_data])
     write_data = '"' + write_data + '"'
     # write csv
