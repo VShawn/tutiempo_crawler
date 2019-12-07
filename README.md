@@ -14,8 +14,15 @@ it works fine now(2019-11-28), and contact me if you have any questions.
 
 4. `ptyhon demo.py`
 
-# Sample data
-csv:
+# get location data of reagion
+
+- [macau_locations.csv](samples/macau_locations.csv)
+
+ ![image](https://github.com/VShawn/tutiempo_crawler/blob/master/README_FILES/locations_of_macau.jpg)
+
+
+# get climate data of station '744860'
+
 - [S744860_2018-01_climate.csv](samples/S744860_2018-01_climate.csv)
 
 - [S744860_2018_climate.csv](samples/S744860_2018_climate.csv)
