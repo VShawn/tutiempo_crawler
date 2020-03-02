@@ -4,8 +4,8 @@ import re
 
 ''' config_start '''
 proxies = None
-proxies = {'http': 'http://172.20.65.197:808',
-           'https': 'http://172.20.65.197:808'}
+# proxies = {'http': 'http://127.0.0.1:1080',
+#            'https': 'http://127.0.0.1:1080'}
 ''' config_end '''
 
 def get_html(url):
@@ -149,17 +149,17 @@ class tutiempo_month_crawler(object):
             else:
                 ret.location_obj.str_weather_station_id = ''
                 ret.location_obj.str_icao = ''
-            ret.location_obj.str_latitude = re.compile(r'(?<=Latitude):\s(\d+\.?\d*)').findall(str_table_info)
+            ret.location_obj.str_latitude = re.compile(r'(?<=Latitude):\s(-?\d+\.?\d*)').findall(str_table_info)
             if ret.location_obj.str_latitude:
                 ret.location_obj.str_latitude = ret.location_obj.str_latitude[0]
             else:
                 ret.location_obj.str_latitude = ''
-            ret.location_obj.str_longitude = re.compile(r'(?<=Longitude):\s(\d+\.?\d*)').findall(str_table_info)
+            ret.location_obj.str_longitude = re.compile(r'(?<=Longitude):\s(-?\d+\.?\d*)').findall(str_table_info)
             if ret.location_obj.str_longitude:
                 ret.location_obj.str_longitude = ret.location_obj.str_longitude[0]
             else:
                 ret.location_obj.str_longitude = ''
-            ret.location_obj.str_altitude = re.compile(r'(?<=Altitude):\s(\d+\.?\d*)').findall(str_table_info)
+            ret.location_obj.str_altitude = re.compile(r'(?<=Altitude):\s(-?\d+\.?\d*)').findall(str_table_info)
             if ret.location_obj.str_altitude:
                 ret.location_obj.str_altitude = ret.location_obj.str_altitude[0]
             else:

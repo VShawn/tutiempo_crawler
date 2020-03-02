@@ -1,5 +1,5 @@
 "location: ","New York, Kennedy International Airport"
-"Weather station: ","744860","ICAO","KJFK","Latitude: ","40.65","Longitude: ","","Altitude: ","3"
+"Weather station: ","744860","ICAO","KJFK","Latitude: ","40.65","Longitude: ","-73.8","Altitude: ","3"
 "Day","T","TM","Tm","SLP","H","PP","VV","V","VM","VG","RA","SN","TS","FG"
 "","Average Temperature","Maximum temperature","Minimum temperature","Atmospheric pressure at sea level","Average relative humidity","Total rainfall and / or snowmelt","Average visibility","Average wind speed","Maximum sustained wind speed","Maximum speed of wind","Indicate if there was rain or drizzle (In the monthly average, total days it rained)","Snow indicator (In the monthly average, total days that snowed)","Indicates whether there storm (In the monthly average, Total days with thunderstorm)","Indicates whether there was fog (In the monthly average, Total days with fog)"
 "2018-01-01","-11.3","-6.1","-13.9","1027.8","48","0","16.1","29.8","38.9","51.9","","","",""
