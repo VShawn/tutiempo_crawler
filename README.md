@@ -4,7 +4,7 @@ a crawler for climate data on en.tutiempo.net
 
 it works fine now(2019-11-28), and contact me if you have any questions.
 
-# Quick start 
+# quick start 
 
 1. install python3
 
@@ -31,7 +31,7 @@ it works fine now(2019-11-28), and contact me if you have any questions.
 
  ![image](https://github.com/VShawn/tutiempo_crawler/blob/master/README_FILES/data.jpg)
 
-## Analysis
+## analysis
 
  ![image](https://github.com/VShawn/tutiempo_crawler/blob/master/README_FILES/analysis.jpg)
 
