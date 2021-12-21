@@ -7,8 +7,8 @@ year = 2019
 month = 1
 place_id = '744860'
 
-# proxies = {'http': 'http://172.20.65.197:808',
-#            'https': 'http://172.20.65.197:808'}
+# proxies = {'http': 'http://127.0.0.1:1080',
+#           'https': 'http://127.0.0.1:1080'}
 proxies = None
 
 ''' config_end '''
@@ -35,7 +35,7 @@ def get_everydayweather(year, month, place_id='744860'):
     '''
     r = requests.get(url=url,
                      proxies=proxies,
-                     verify=True,
+                     verify=False,
                      headers={'Content-Type': 'application/x-www-form-urlencoded',
                               'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
                               'Accept-Encoding': 'gzip, deflate, br',

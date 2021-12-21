@@ -14,7 +14,7 @@ def get_html(url):
     '''
     r = requests.get(url=url,
                      proxies=proxies,
-                     verify=True,
+                     verify=False,
                      headers={'Content-Type': 'application/x-www-form-urlencoded',
                               'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
                               'Accept-Encoding': 'gzip, deflate, br',
